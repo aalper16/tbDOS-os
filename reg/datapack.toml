@@ -1,0 +1,6 @@
+OS = "Windows"
+Versys_infoon = "10.0.22621"
+Architecture = "64bit"
+Processor = "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel"
+Python = "3.9.0"
+"RAM Memory" = "7930.5703125"
