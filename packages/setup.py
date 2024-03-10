@@ -1,5 +1,6 @@
 import toml 
 from packages import sys_info, process_toml
+from libraries import install
 
 
 system = {
@@ -13,3 +14,6 @@ system = {
 
 
 process_toml.load_data('reg/datapack.toml', system)
+
+
+install.install_req()
