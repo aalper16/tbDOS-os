@@ -70,7 +70,7 @@ if username == getname and password == getpasswd:
                 process_toml.load_data('reg/user.toml', user)
 
         elif komut == 'kurulum':
-            pass
+            setup.start()
 
 else:
     print('Kullanıcı bilgileri yanlış! Varsayılan isim "user" ve varsayılan şifre "user"dir.')
