@@ -6,7 +6,7 @@ from libraries import install
 def start():
     system = {
         'OS': f'{sys_info.get_os()}',
-        'Versys_infoon': f'{sys_info.get_version()}',
+        'Version Info': f'{sys_info.get_version()}',
         'Architecture': f'{sys_info.get_type()}',
         'Processor': f'{sys_info.get_processor()}',
         'Python': f'{sys_info.get_python()}',

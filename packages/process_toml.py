@@ -6,5 +6,5 @@ def get_data(name):
         return getdata
     
 def load_data(name, data):
-    with open(name, 'w') as load_toml:
+    with open(name, 'a') as load_toml:
         toml.dump(data, load_toml)

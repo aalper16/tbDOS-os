@@ -1,6 +1,6 @@
 import os 
 
-libs = ['keras', 'opencv-python', 'pymysql', 'flask', 'toml', 'numpy']
+libs = ['keras', 'opencv-python', 'pymysql', 'flask', 'toml', 'numpy', 'colorama']
 
 def install_req():
     global libs

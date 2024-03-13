@@ -1,8 +1,8 @@
-from packages import append_file, create_file, current_time, delete_file, get_host, write_file, sys_info, process_toml, setup
+from packages import append_file, create_file, current_time, delete_file, get_host, write_file, sys_info, process_toml, setup, process
 from colorama import *
 import os
 
-print("tbDOS starting at: "+get_host.get_host())
+print(Fore.GREEN+"tbDOS starting at: "+get_host.get_host())
 print('İşletim sistemi: '+sys_info.get_os())
 print('İşletim sistemi versiyonu: '+sys_info.get_version())
 print('Makine tipi: '+sys_info.get_type())
@@ -19,14 +19,37 @@ getname = process_toml.get_data('reg/user.toml').get('name')
 getpasswd = process_toml.get_data('reg/user.toml').get('password')
 
 if username == getname and password == getpasswd:
-    print('Oturum açıldı.')
+    print(Fore.BLUE+'Oturum açıldı.')
+    time = current_time.time()
+    log = {
+        'msg': 'logged in',
+        'time': f'{time}',
+        '----------': '----------'
+    }
+    process.post(log)
     while True:
-        komut = input('Kullanıcı komutu: ')
+        print(Fore.RED+"|<-komut@"+getname)
+        print(Fore.WHITE+"|")
+        komut = input(Fore.WHITE+"|--> ")
 
         if komut == 'zaman':
             print(current_time.time())
+            time = current_time.time()
+            com = {
+                'msg': 'zaman',
+                'time': f'{time}',
+                '----------': '----------'
+            }
+            process.post(com)
 
         elif komut == 'dosya':
+            time = current_time.time()
+            com = {
+                'msg': 'dosya',
+                'time': f'{time}',
+                '----------': '----------'
+            }
+            process.post(com)
             islem = input('İşlem giriniz:')
             if islem == 'oluştur':
                 isim = input('Dosya ismi: ')
@@ -44,9 +67,23 @@ if username == getname and password == getpasswd:
                 append_file.append(isim, ekle)
 
         elif komut == 'ip':
+            time = current_time.time()
+            com = {
+                'msg': 'ip',
+                'time': f'{time}',
+                '----------': '----------'
+            }
+            process.post(com)
             print(get_host.get_host())
 
-        elif komut == 'sistem_bilgisi':
+        elif komut == 'sistem bilgisi':
+            time = current_time.time()
+            com = {
+                'msg': 'sistem bilgisi',
+                'time': f'{time}',
+                '----------': '----------'
+            }
+            process.post(com)
             print('İşletim sistemi: '+sys_info.get_os())
             print('İşletim sistemi versiyonu: '+sys_info.get_version())
             print('Makine tipi: '+sys_info.get_type())
@@ -55,9 +92,23 @@ if username == getname and password == getpasswd:
             print('RAM kapasitesi: '+sys_info.get_ram()+' MB')
 
         elif komut == 'temiz':
+            time = current_time.time()
+            com = {
+                'msg': 'cls',
+                'time': f'{time}',
+                '----------': '----------'
+            }
+            process.post(com)
             os.system('cls')
 
-        elif komut == 'kullanıcı_giriş':
+        elif komut == 'kullanıcı giriş':
+            time = current_time.time()
+            com = {
+                'msg': 'kullanıcı giriş',
+                'time': f'{time}',
+                '----------': '----------'
+            }
+            process.post(com)
             newname = input('Yeni kullanıcı ismi: ')
             newpasswd = input('Yeni şifre: ')
             confnewpasswd = input('Yeni şifreyi doğrulayın: ')
@@ -70,7 +121,21 @@ if username == getname and password == getpasswd:
                 process_toml.load_data('reg/user.toml', user)
 
         elif komut == 'kurulum':
+            time = current_time.time()
+            com = {
+                'msg': 'kurulum',
+                'time': f'{time}',
+                '----------': '----------'
+            }
+            process.post(com)
             setup.start()
 
 else:
+    time = current_time.time()
+    com = {
+        'msg': 'wrong login',
+        'time': f'{time}',
+        '----------': '----------'
+    }
+    process.post(com)
     print('Kullanıcı bilgileri yanlış! Varsayılan isim "user" ve varsayılan şifre "user"dir.')
