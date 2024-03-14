@@ -22,9 +22,11 @@ if username == getname and password == getpasswd:
     print(Fore.BLUE+'Oturum açıldı.')
     time = current_time.time()
     log = {
+        'log': [{
         'msg': 'logged in',
         'time': f'{time}',
         '----------': '----------'
+        }]
     }
     process.post(log)
     while True:
@@ -36,18 +38,22 @@ if username == getname and password == getpasswd:
             print(current_time.time())
             time = current_time.time()
             com = {
+                'log': [{
                 'msg': 'zaman',
                 'time': f'{time}',
                 '----------': '----------'
+                }]
             }
             process.post(com)
 
         elif komut == 'dosya':
             time = current_time.time()
             com = {
+                'log': [{
                 'msg': 'dosya',
                 'time': f'{time}',
                 '----------': '----------'
+                }]
             }
             process.post(com)
             islem = input('İşlem giriniz:')
@@ -69,19 +75,23 @@ if username == getname and password == getpasswd:
         elif komut == 'ip':
             time = current_time.time()
             com = {
+                'log': [{
                 'msg': 'ip',
                 'time': f'{time}',
                 '----------': '----------'
+                }]
             }
             process.post(com)
             print(get_host.get_host())
 
         elif komut == 'sistem bilgisi':
             time = current_time.time()
-            com = {
+            com= {
+                'log': [{
                 'msg': 'sistem bilgisi',
                 'time': f'{time}',
                 '----------': '----------'
+                }]
             }
             process.post(com)
             print('İşletim sistemi: '+sys_info.get_os())
@@ -94,9 +104,11 @@ if username == getname and password == getpasswd:
         elif komut == 'temiz':
             time = current_time.time()
             com = {
-                'msg': 'cls',
+                'log': [{
+                'msg': 'temiz',
                 'time': f'{time}',
                 '----------': '----------'
+                }]
             }
             process.post(com)
             os.system('cls')
@@ -104,9 +116,11 @@ if username == getname and password == getpasswd:
         elif komut == 'kullanıcı giriş':
             time = current_time.time()
             com = {
+                'log': [{
                 'msg': 'kullanıcı giriş',
                 'time': f'{time}',
                 '----------': '----------'
+                }]
             }
             process.post(com)
             newname = input('Yeni kullanıcı ismi: ')
@@ -123,19 +137,23 @@ if username == getname and password == getpasswd:
         elif komut == 'kurulum':
             time = current_time.time()
             com = {
-                'msg': 'kurulum',
-                'time': f'{time}',
-                '----------': '----------'
-            }
+                    'log': [{
+                    'msg': 'kurulum',
+                    'time': f'{time}',
+                    '----------': '----------'
+                    }]
+                }
             process.post(com)
             setup.start()
 
 else:
     time = current_time.time()
     com = {
+        'log': [{
         'msg': 'wrong login',
         'time': f'{time}',
         '----------': '----------'
+        }]
     }
     process.post(com)
     print('Kullanıcı bilgileri yanlış! Varsayılan isim "user" ve varsayılan şifre "user"dir.')

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ user }}</title>
+    <link rel="stylesheet" href="../static/main.css">
+</head>
+<body>
+    <h1>Hello, {{ user }}</h1>
+    <div class="events">
+        {% for c in com %}
+            <h2>{{c}}</h2>
+        {% endfor %}
+    </div>
+</body>
+</html>

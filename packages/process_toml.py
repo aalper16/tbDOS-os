@@ -1,8 +1,8 @@
 import toml
 
 def get_data(name):
-    with open(name, 'r') as get_toml:
-        getdata = toml.load(get_toml)
+    with open(name, 'r') as gett_toml:
+        getdata = toml.load(gett_toml)
         return getdata
     
 def load_data(name, data):
