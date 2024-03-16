@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tb-DOS panel</title>
+</head>
+<body>
+    <h3>{{ name }}</h3>
+    <h1>tb-DOS'un Kullanıcı Arayüzü</h1><br>
+    {% if sp == True %}
+        <form method="post" action="chPasswd">
+            <h2>Şifrenizi güçlendirin!</h2><br>
+            <input type="password" placeholder="YENİ ŞİFRE" required autocomplete="off" name="newpass"><br><br>
+            <button type="submit">DEĞİŞTİR</button>
+        </form>
+    {% else %}
+        <h2>Şifre güvenliği yeterli</h2>
+    {% endif %}
+</body>
+</html>
